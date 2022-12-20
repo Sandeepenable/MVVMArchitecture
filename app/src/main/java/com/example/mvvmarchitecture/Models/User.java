@@ -6,6 +6,16 @@ public class User {
     private String approved;
     private String imgIcon;
 
+    public String getTestname() {
+        return testname;
+    }
+
+    public void setTestname(String testname) {
+        this.testname = testname;
+    }
+
+    private String testname;
+
     public String getApplied() {
         return applied;
     }
