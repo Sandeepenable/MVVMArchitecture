@@ -21,7 +21,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements LifecycleOwner {
 
 
-    Context context=MainActivity.this;
     MainViewModel viewModel;
     RecyclerView mvvmRecycler;
     RecyclerViewAdapter recyclerViewAdapter;
@@ -31,14 +30,14 @@ public class MainActivity extends AppCompatActivity implements LifecycleOwner {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mvvmRecycler=findViewById(R.id.mvvm_recycler);
-        recyclerViewAdapter=new RecyclerViewAdapter();
+        mvvmRecycler = findViewById(R.id.mvvm_recycler);
+        recyclerViewAdapter = new RecyclerViewAdapter();
         RecyclerView.LayoutManager manager = new LinearLayoutManager(MainActivity.this);
         mvvmRecycler.setLayoutManager(manager);
         mvvmRecycler.setAdapter(recyclerViewAdapter);
 
-        viewModel= ViewModelProviders.of(this).get(MainViewModel.class);
-        viewModel.getUserLiveData().observe(this,userListUpdateObserver);
+        viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        viewModel.getUserLiveData().observe(this, userListUpdateObserver);
     }
 
     Observer<ArrayList<User>> userListUpdateObserver = new Observer<ArrayList<User>>() {
